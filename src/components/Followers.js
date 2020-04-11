@@ -8,7 +8,7 @@ class Followers extends React.Component {
 
     render() {
         return (
-            <div>Followers</div>
+            <div>Followers Component</div>
         )
     }
 }

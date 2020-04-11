@@ -16,12 +16,11 @@ class App extends React.Component {
     componentDidMount() {
       const GetUserdata = () => {
         axios
-          .get('https://api.github.com/users/vishalicious213')
+          .get('https://non-cors.herokuapp.com/https://api.github.com/users/vishalicious213')
           .then(results => {
-            console.log(results);
+            // console.log(results);
+            this.setState({userdata: results.data});
           })
-          // .then(results => results.json())
-          // .then(console.log(results.data))
           .catch(error => console.log('Error: ', error));
       }
 
@@ -30,14 +29,15 @@ class App extends React.Component {
 
 
     render() {
-      console.log('Userdata: ', this.state.userdata)
+      // console.log('Userdata: ', this.state.userdata)
+      // console.log(this.state.userdata.name)
       return (
         <div className="App">
           <Search />
           <header className="App-header">
             React GitHub User Card
           </header>
-          <Usercard />
+          <Usercard userdata={this.state.userdata} />
           <Followers />
         </div>
       )
@@ -45,3 +45,5 @@ class App extends React.Component {
 }
 
 export default App;
+
+// https://cors-anywhere.herokuapp.com/
