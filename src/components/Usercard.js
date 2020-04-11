@@ -5,24 +5,27 @@ const Usercard = (props) => {
         // console.log(props)
         // console.log(props.userData.name)
         return (
-            <div className='usercard'>
-                <div className='imagebox'>
-                    <img src={props.userData.avatar_url} alt={props.userData.name} />
-                </div>
+            <section className='usercardSection'>
+                <div className='usercard'>
+                    <div className='imagebox'>
+                        <img src={props.userData.avatar_url} alt={props.userData.name} />
+                    </div>
 
-                <div className='details'>
-                    <h1>{props.userData.name}</h1>
-                    <div><i>{props.userData.login}</i></div>
-                    <div><b>Location: </b>{props.userData.location}</div>
-                    {/* <div><b>Profile: </b>{props.userData.html_url}</div> */}
-                    <div><b>Followers: </b>{props.userData.followers}</div>
-                    <div><b>Following: </b>{props.userData.following}</div>
-                    <div><b>Bio: </b>{props.userData.bio}</div>
-                    <a href={props.userData.html_url}>
-                        <button>Visit GitHub Profile</button>
-                    </a>
+                    <div className='details'>
+                        <h1>{props.userData.name}</h1>
+                        <div><i>{props.userData.login}</i></div>
+                        <div><b>Location: </b>{props.userData.location}</div>
+                        {/* <div><b>Profile: </b>{props.userData.html_url}</div> */}
+                        <div><b>Followers: </b>{props.userData.followers}</div>
+                        <div><b>Following: </b>{props.userData.following}</div>
+                        <div><b>Bio: </b>{props.userData.bio}</div>
+                        <div><b>Blog: </b><a href={props.userData.blog}>{props.userData.blog}</a></div>
+                        <a href={props.userData.html_url}>
+                            <button>Visit GitHub Profile</button>
+                        </a>
+                    </div>
                 </div>
-            </div>
+            </section>
         )
 }
 
