@@ -2,21 +2,21 @@ import React from 'react';
 
 const Usercard = (props) => {
         // console.log(props)
-        // console.log(props.userdata.name)
+        // console.log(props.userData.name)
         return (
             <div>
                 <div>
-                    <img src={props.userdata.avatar_url} alt={props.userdata.name} />
+                    <img src={props.userData.avatar_url} alt={props.userData.name} />
                 </div>
                 <div>
 
-                    <div>{props.userdata.name}</div>
-                    <div>{props.userdata.login}</div>
-                    <div>Location: {props.userdata.location}</div>
-                    <div>Profile: {props.userdata.html_url}</div>
-                    <div>Followers: {props.userdata.followers}</div>
-                    <div>Following: {props.userdata.following}</div>
-                    <div>Bio: {props.userdata.bio}</div>
+                    <div>{props.userData.name}</div>
+                    <div>{props.userData.login}</div>
+                    <div>Location: {props.userData.location}</div>
+                    <div>Profile: {props.userData.html_url}</div>
+                    <div>Followers: {props.userData.followers}</div>
+                    <div>Following: {props.userData.following}</div>
+                    <div>Bio: {props.userData.bio}</div>
                 </div>
             </div>
         )

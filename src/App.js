@@ -9,36 +9,50 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-          userdata: [],
+          user: 'vishalicious213',
+          userData: [],
+          followersData: [],
         }
     }
 
     componentDidMount() {
-      const GetUserdata = () => {
+      const GetUserData = () => {
         axios
-          .get('https://non-cors.herokuapp.com/https://api.github.com/users/vishalicious213')
+          .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.user}`)
           .then(results => {
             // console.log(results);
-            this.setState({userdata: results.data});
+            this.setState({userData: results.data});
           })
           .catch(error => console.log('Error: ', error));
       }
 
-      GetUserdata();
+      const GetFollowersData = () => {
+        axios
+          .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.user}/followers`)
+          .then(results => {
+            // console.log(results);
+            this.setState({followersData: results.data});
+          })
+          .catch(error => console.log('Error: ', error));
+      }
+
+      GetUserData();
+      GetFollowersData();
     }
 
 
     render() {
-      // console.log('Userdata: ', this.state.userdata)
-      // console.log(this.state.userdata.name)
+      // console.log('Userdata: ', this.state.userData)
+      // console.log(this.state.userData.name)
+      console.log('Followersdata: ', this.state.followersData)
       return (
         <div className="App">
           <Search />
           <header className="App-header">
             React GitHub User Card
           </header>
-          <Usercard userdata={this.state.userdata} />
-          <Followers />
+          <Usercard userData={this.state.userData} />
+          <Followers followersData={this.state.followersData} />
         </div>
       )
     }
