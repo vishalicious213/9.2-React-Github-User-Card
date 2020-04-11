@@ -26,6 +26,10 @@ class App extends React.Component {
           .catch(error => console.log('Error: ', error));
       }
 
+      const UpdateUser = (props) => {
+        this.setState({user: props})
+      }
+
       const GetFollowersData = () => {
         axios
           .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.user}/followers`)
@@ -52,7 +56,7 @@ class App extends React.Component {
             React GitHub User Card
           </header>
           <Usercard userData={this.state.userData} />
-          <Followers followersData={this.state.followersData} />
+          <Followers followersData={this.state.followersData} getUserData={this.GetUserData} updateUser={this.UpdateUser} />
         </div>
       )
     }
