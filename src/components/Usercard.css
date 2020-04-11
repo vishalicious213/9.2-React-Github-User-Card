@@ -1,0 +1,22 @@
+.usercard {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+
+.imagebox {
+    width: 50%;
+}
+
+img {
+    width: 100%;
+}
+
+.details {
+    text-align: left;
+    margin-left: 1rem;
+}
+
+h1 {
+    margin-bottom: 0;
+}

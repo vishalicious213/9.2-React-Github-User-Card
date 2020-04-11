@@ -1,22 +1,23 @@
 import React from 'react';
+import './Usercard.css';
 
 const Usercard = (props) => {
         // console.log(props)
         // console.log(props.userData.name)
         return (
-            <div>
-                <div>
+            <div className='usercard'>
+                <div className='imagebox'>
                     <img src={props.userData.avatar_url} alt={props.userData.name} />
                 </div>
-                <div>
 
-                    <div>{props.userData.name}</div>
-                    <div>{props.userData.login}</div>
-                    <div>Location: {props.userData.location}</div>
-                    <div>Profile: {props.userData.html_url}</div>
-                    <div>Followers: {props.userData.followers}</div>
-                    <div>Following: {props.userData.following}</div>
-                    <div>Bio: {props.userData.bio}</div>
+                <div className='details'>
+                    <h1>{props.userData.name}</h1>
+                    <div><i>{props.userData.login}</i></div>
+                    <div><b>Location: </b>{props.userData.location}</div>
+                    <div><b>Profile: </b>{props.userData.html_url}</div>
+                    <div><b>Followers: </b>{props.userData.followers}</div>
+                    <div><b>Following: </b>{props.userData.following}</div>
+                    <div><b>Bio: </b>{props.userData.bio}</div>
                 </div>
             </div>
         )
