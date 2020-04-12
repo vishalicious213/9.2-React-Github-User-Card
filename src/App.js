@@ -4,7 +4,6 @@ import './App.css';
 import Usercard from './components/Usercard';
 import Followers from './components/Followers';
 import Search from './components/Search';
-// import GitHubCalendar from "react-github-calendar";
 
 class App extends React.Component {
     constructor() {
@@ -57,12 +56,6 @@ class App extends React.Component {
             React GitHub User Card
           </header>
           <Usercard userData={this.state.userData} />
-              {/* <GitHubCalendar
-                username={this.state.user}
-                fontSize={12}
-                blockSize={10}
-                blockMargin={4}
-              /> */}
           <Followers followersData={this.state.followersData} getUserData={this.GetUserData} updateUser={this.UpdateUser} />
         </div>
       )
