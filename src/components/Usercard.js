@@ -1,5 +1,6 @@
 import React from 'react';
 import './Usercard.css';
+import GitHubCalendar from "react-github-calendar";
 
 const Usercard = (props) => {
         // console.log(props)
@@ -21,8 +22,16 @@ const Usercard = (props) => {
                         <div><b>Bio: </b>{props.userData.bio}</div>
                         <div><b>Blog: </b><a href={props.userData.blog}>{props.userData.blog}</a></div>
                         <a href={props.userData.html_url}>
-                            <button>Visit GitHub Profile</button>
+                            <button className='userButton'>Visit GitHub Profile</button>
                         </a>
+
+                        <GitHubCalendar
+                            username={props.userData.login}
+                            fontSize={12}
+                            blockSize={10}
+                            blockMargin={4}
+                            color="darkslateblue"
+                        />
                     </div>
                 </div>
             </section>

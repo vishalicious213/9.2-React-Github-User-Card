@@ -1,5 +1,6 @@
 import React from 'react';
 import './Followers.css';
+import GitHubCalendar from "react-github-calendar";
 // import axios from 'axios';
 // import Usercard from './Usercard';
 
@@ -21,6 +22,16 @@ const Followers = (props) => {
                             <a href={follower.html_url}>
                                 <button>Visit GitHub Profile</button>
                             </a>
+
+                            <div className='calendar'>
+                                <GitHubCalendar
+                                    username={follower.login}
+                                    fontSize={12}
+                                    blockSize={10}
+                                    blockMargin={4}
+                                    color="darkslateblue"
+                                />
+                            </div>
                         </div>
                     )
                 })}
