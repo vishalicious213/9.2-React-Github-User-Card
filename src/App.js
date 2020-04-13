@@ -17,6 +17,7 @@ class App extends React.Component {
         }
     }
 
+    // axios call to GitHub API to get main user's data for top of screen
     getUserData = () => {
       axios
         .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.user}`)
@@ -27,6 +28,7 @@ class App extends React.Component {
         .catch(error => console.log('Error: ', error));
     }
 
+    // axios call with main user's login name to get followers list data
     getFollowersData = () => {
       axios
         .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.user}/followers`)
@@ -38,52 +40,26 @@ class App extends React.Component {
         .catch(error => console.log('Error: ', error));
     }
 
+// lifecycle. run these when the component mounts for the first time
     componentDidMount() {
       this.getUserData();
       this.getFollowersData();
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //   if (prevState.user |= this.state.user) {
-    //     console.log('User state has changed');
-    //     this.GetUserData();
-    //   }
-    // }
-
-      // getSearchText = event => {
-      //   // event.preventDefault();
-      //   console.log('typed: ', event.target.value);
-      //   this.setState({search: event.target.value});
-      //   console.log('searchState: ', this.state.search);
-      //   this.setState({user: this.state.search});
-      //   console.log('userState: ', this.state.user);
-      // }
-
-      // submitSearch = event => {
-      //   event.preventDefault();
-      //   console.log(event.target.value);
-      //   console.log('searchState from submitSearch: ', this.state.search);
-      //   console.log('user before: ', this.state.user);
-      //   // this.setState({user: this.state.search}, this.GetUserData);
-      //   console.log('user after: ', this.state.user);
-      //   // // setQuery(search);
-      //   // this.setState(search: '');
-      //   // // setSearch('')
-      // }
-
-    // }
-
+    // input field's event handler
     handleSearch = event => {
       this.setState({typedString: event.target.value});
       console.log(this.state.typedString);
     }
 
+    // submit event handler. attach to <form>
     stopAxios = event => {
       // event.preventDefault();
       this.setState({user: this.state.typedString});
       console.log(this.state.user);
     }
 
+    // button's event handler. initiates new axios call. i want it to use call from getUserData.
     getNewUser = event => {
       axios
         .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.typedString}`)
@@ -93,6 +69,13 @@ class App extends React.Component {
         })
         .catch(error => console.log('Error: ', error));
     }
+
+    // componentDidUpdate(prevProps, prevState) {
+    //   if (prevState.user |= this.state.user) {
+    //     console.log('User state has changed');
+    //     this.GetUserData();
+    //   }
+    // }
 
     render() {
       // console.log('Userdata: ', this.state.userData)
@@ -131,3 +114,27 @@ class App extends React.Component {
 export default App;
 
 // https://cors-anywhere.herokuapp.com/
+
+
+      // getSearchText = event => {
+      //   // event.preventDefault();
+      //   console.log('typed: ', event.target.value);
+      //   this.setState({search: event.target.value});
+      //   console.log('searchState: ', this.state.search);
+      //   this.setState({user: this.state.search});
+      //   console.log('userState: ', this.state.user);
+      // }
+
+      // submitSearch = event => {
+      //   event.preventDefault();
+      //   console.log(event.target.value);
+      //   console.log('searchState from submitSearch: ', this.state.search);
+      //   console.log('user before: ', this.state.user);
+      //   // this.setState({user: this.state.search}, this.GetUserData);
+      //   console.log('user after: ', this.state.user);
+      //   // // setQuery(search);
+      //   // this.setState(search: '');
+      //   // // setSearch('')
+      // }
+
+    // }
