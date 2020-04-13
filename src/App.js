@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import Usercard from './components/Usercard';
 import Followers from './components/Followers';
-import Search from './components/Search';
+// import Search from './components/Search';
 
 class App extends React.Component {
     constructor() {
@@ -13,6 +13,7 @@ class App extends React.Component {
           userData: [],
           followersData: [],
           search: '',
+          typedString: '',
         }
     }
 
@@ -47,28 +48,46 @@ class App extends React.Component {
       GetFollowersData();
     }
 
-    // componentDidUpdate() {
-      getSearchText = event => {
-        event.preventDefault();
-        console.log('typed: ', event.target.value);
-        this.setState({search: event.target.value});
-        console.log('searchState: ', this.state.search);
-      }
+    // componentDidUpdate(prevProps, prevState) {
+    //   if (prevState.user |= this.state.user) {
+    //     console.log('User state has changed');
+    //     this.GetUserData();
+    //   }
+    // }
 
-      submitSearch = event => {
-        event.preventDefault();
-        console.log(event.target.value);
-        console.log('searchState from submitSearch: ', this.state.search);
-        console.log('user before: ', this.state.user);
-        this.setState({user: this.state.search});
-        console.log('user after: ', this.state.user);
-        // // setQuery(search);
-        // this.setState(search: '');
-        // // setSearch('')
-      }
+      // getSearchText = event => {
+      //   // event.preventDefault();
+      //   console.log('typed: ', event.target.value);
+      //   this.setState({search: event.target.value});
+      //   console.log('searchState: ', this.state.search);
+      //   this.setState({user: this.state.search});
+      //   console.log('userState: ', this.state.user);
+      // }
+
+      // submitSearch = event => {
+      //   event.preventDefault();
+      //   console.log(event.target.value);
+      //   console.log('searchState from submitSearch: ', this.state.search);
+      //   console.log('user before: ', this.state.user);
+      //   // this.setState({user: this.state.search}, this.GetUserData);
+      //   console.log('user after: ', this.state.user);
+      //   // // setQuery(search);
+      //   // this.setState(search: '');
+      //   // // setSearch('')
+      // }
 
     // }
 
+    handleSearch = event => {
+      this.setState({typedString: event.target.value});
+      console.log(this.state.typedString);
+    }
+
+    stopAxios = event => {
+      // event.preventDefault();
+      this.setState({user: this.state.typedString});
+      console.log(this.state.user);
+    }
 
     render() {
       // console.log('Userdata: ', this.state.userData)
@@ -76,12 +95,20 @@ class App extends React.Component {
       // console.log('Followersdata: ', this.state.followersData)
       return (
         <div className="App">
-          <Search />
+          {/* <Search /> */}
 
-      <form className='search-form' onSubmit={this.submitSearch}>
-        <input className='search-bar' type='text' onChange={this.getSearchText} placeholder='Enter username'/>
-        <button className='search-button' type='submit'>Search</button>
-      </form>
+      {/* <form className='search-form' onSubmit={this.stopAxios}> */}
+        {/* <input className='search-bar' name='search' type='text' value={this.state.search} onChange={this.getSearchText} placeholder='Enter username'/>
+        <button className='search-button' type='submit' onSubmit={() => this.submitSearch}>Search</button> */}
+        {/* <input
+          type='text'
+          onChange={this.handleSearch}
+          value={this.typedString}
+          name='search'
+          placeholder='Enter username'
+        />
+        <button>Search</button>
+      </form> */}
 
           <header className="App-header">
             React GitHub User Card
