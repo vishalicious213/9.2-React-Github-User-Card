@@ -49,15 +49,19 @@ class App extends React.Component {
     // input field's event handler
     handleSearch = event => {
       this.setState({typedString: event.target.value});
-      console.log(this.state.typedString);
+      console.log('Search: ', this.state.typedString);
     }
 
     // submit event handler. attach to <form>
     handleSubmit = event => {
       event.preventDefault();
       this.setState({user: this.state.typedString});
-      console.log(this.state.user);
+      this.updateUser();
       // alert('handleSubmit: ', this.state.user);
+    }
+
+    updateUser = () => {
+      console.log('Submit: ', this.state.user);
     }
 
     // button's event handler. initiates new axios call. i want it to use call from getUserData.
@@ -72,10 +76,11 @@ class App extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
+      // alert();
       console.log('prevState: ', prevState.user);
       console.log('thisState: ', this.state.user);
-      if (prevState.user |= this.state.user) {
-        alert('User state has changed');
+      if (prevState.user !== this.state.user) {
+        alert('User state has changed'); // log shows state change but this isn't popping up
         // this.GetUserData();
       }
     }
