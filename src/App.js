@@ -89,6 +89,20 @@ class App extends React.Component {
       console.log(this.state.user);
     }
 
+    // getNewUser = event => {
+    //   this.getUserData();
+    // }
+
+    getNewUser = event => {
+      axios
+        .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.typedString}`)
+        .then(results => {
+          // console.log(results);
+          this.setState({userData: results.data});
+        })
+        .catch(error => console.log('Error: ', error));
+    }
+
     render() {
       // console.log('Userdata: ', this.state.userData)
       // console.log(this.state.userData.name)
@@ -97,18 +111,7 @@ class App extends React.Component {
         <div className="App">
           {/* <Search /> */}
 
-      <form className='search-form' onSubmit={this.stopAxios}>
-        {/* <input className='search-bar' name='search' type='text' value={this.state.search} onChange={this.getSearchText} placeholder='Enter username'/>
-        <button className='search-button' type='submit' onSubmit={() => this.submitSearch}>Search</button> */}
-        <input
-          type='text'
-          onChange={this.handleSearch}
-          value={this.typedString}
-          name='search'
-          placeholder='Enter username'
-        />
-        <button>Search</button>
-      </form>
+
 
           <header className="App-header">
             React GitHub User Card
