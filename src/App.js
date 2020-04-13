@@ -97,10 +97,10 @@ class App extends React.Component {
         <div className="App">
           {/* <Search /> */}
 
-      {/* <form className='search-form' onSubmit={this.stopAxios}> */}
+      <form className='search-form' onSubmit={this.stopAxios}>
         {/* <input className='search-bar' name='search' type='text' value={this.state.search} onChange={this.getSearchText} placeholder='Enter username'/>
         <button className='search-button' type='submit' onSubmit={() => this.submitSearch}>Search</button> */}
-        {/* <input
+        <input
           type='text'
           onChange={this.handleSearch}
           value={this.typedString}
@@ -108,7 +108,7 @@ class App extends React.Component {
           placeholder='Enter username'
         />
         <button>Search</button>
-      </form> */}
+      </form>
 
           <header className="App-header">
             React GitHub User Card
