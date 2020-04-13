@@ -1,0 +1,55 @@
+.usercardSection {
+    background: whitesmoke;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.usercard {
+    margin-left: auto;
+    margin-right: auto;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
+
+.imagebox {
+    /* border: 1px solid orange; */
+    width: 50%;
+}
+
+img {
+    width: 100%;
+}
+
+.details {
+    /* border: 1px solid yellow; */
+    width: 50%;
+    text-align: left;
+    margin-left: 1rem;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.userButton {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {
+    .usercard {
+        flex-direction: column;
+    }   
+    .imagebox {
+        width: 100%;
+    }
+    .details {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+}

@@ -1,0 +1,62 @@
+.followerSection {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.followerCard {
+    margin: .5rem;
+    border: 1px solid lavender;
+    border-radius: .5rem;
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+    width: 30%;
+    background-image: linear-gradient(gainsboro, white);
+}
+
+.followerCard:hover {
+    background: lavender;
+    border: 1px solid darkgray;
+}
+
+.followerImage {
+    /* border: 1px solid yellow; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+img {
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.followerName {
+    font-weight: bold;
+}
+
+button {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.calendar {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+@media screen and (max-width: 768px) {
+    .followerCard {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .followerCard {
+        width: 90%;
+    }
+}
