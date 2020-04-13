@@ -4,8 +4,6 @@ import GitHubCalendar from "react-github-calendar";
 import Search from './Search';
 
 const Usercard = (props) => {
-        // console.log(props)
-        // console.log(props.userData.name)
         return (
             <section className='usercardSection'>
                 <div className='usercard'>
@@ -17,7 +15,6 @@ const Usercard = (props) => {
                         <h1>{props.userData.name}</h1>
                         <div><i>{props.userData.login}</i></div>
                         <div><b>Location: </b>{props.userData.location}</div>
-                        {/* <div><b>Profile: </b>{props.userData.html_url}</div> */}
                         <div><b>Followers: </b>{props.userData.followers}</div>
                         <div><b>Following: </b>{props.userData.following}</div>
                         <div><b>Bio: </b>{props.userData.bio}</div>
