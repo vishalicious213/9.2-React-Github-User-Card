@@ -1,4 +1,5 @@
 import React from 'react';
+import './Search.css';
 
 // class Search extends React.Component {
 //     constructor() {
@@ -11,6 +12,7 @@ const Search = (props) => {
             // <div>Search Component</div>
 
             <form className='search-form' onSubmit={props.handleSubmit}>
+                <i className='fab fa-github' title='See another GitHub user'></i>
                 <input
                     type='text'
                     value={props.typedString}
@@ -18,7 +20,7 @@ const Search = (props) => {
                     name='search'
                     placeholder='Enter username'
                 />
-                <button type='submit'>Search</button>
+                <button className='search' type='submit'>Search</button>
             </form>
         )
 }

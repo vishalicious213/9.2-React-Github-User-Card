@@ -3,7 +3,6 @@ import axios from 'axios';
 import './App.css';
 import Usercard from './components/Usercard';
 import Followers from './components/Followers';
-// import Search from './components/Search';
 
 class App extends React.Component {
     constructor() {
@@ -81,29 +80,19 @@ class App extends React.Component {
       // console.log('Followersdata: ', this.state.followersData)
       return (
         <div className="App">
-          {/* <Search /> */}
+          <header className="App-header">React GitHub User Card</header>
 
-      {/* <form className='search-form' onSubmit={this.handleSubmit}>
-        <input
-          type='text'
-          value={this.state.typedString}
-          onChange={this.handleSearch}
-          name='search'
-          placeholder='Enter username'
-        />
-        <button type='submit'>Search</button>
-      </form> */}
-
-          <header className="App-header">
-            React GitHub User Card
-          </header>
           <Usercard 
             userData={this.state.userData} 
             handleSubmit={this.handleSubmit}
             typedString={this.typedString}
             handleSearch={this.handleSearch} 
           />
-          {/* <Followers followersData={this.state.followersData} getUserData={this.getUserData} /> */}
+
+          <Followers 
+            followersData={this.state.followersData} 
+            getUserData={this.getUserData} 
+          />
         </div>
       )
     }
