@@ -80,8 +80,9 @@ class App extends React.Component {
       console.log('prevState: ', prevState.user);
       console.log('thisState: ', this.state.user);
       if (prevState.user !== this.state.user) {
-        alert('User state has changed'); // log shows state change but this isn't popping up
-        // this.GetUserData();
+        // alert('User state has changed'); // I was using a pipe (|) instead of bang (!) !!!
+        this.getUserData();
+        this.getFollowersData();
       }
     }
 
@@ -113,7 +114,7 @@ class App extends React.Component {
             React GitHub User Card
           </header>
           <Usercard userData={this.state.userData} />
-          {/* <Followers followersData={this.state.followersData} getUserData={this.getUserData} updateUser={this.UpdateUser} /> */}
+          <Followers followersData={this.state.followersData} getUserData={this.getUserData} />
         </div>
       )
     }
@@ -122,27 +123,3 @@ class App extends React.Component {
 export default App;
 
 // https://cors-anywhere.herokuapp.com/
-
-
-      // getSearchText = event => {
-      //   // event.preventDefault();
-      //   console.log('typed: ', event.target.value);
-      //   this.setState({search: event.target.value});
-      //   console.log('searchState: ', this.state.search);
-      //   this.setState({user: this.state.search});
-      //   console.log('userState: ', this.state.user);
-      // }
-
-      // submitSearch = event => {
-      //   event.preventDefault();
-      //   console.log(event.target.value);
-      //   console.log('searchState from submitSearch: ', this.state.search);
-      //   console.log('user before: ', this.state.user);
-      //   // this.setState({user: this.state.search}, this.GetUserData);
-      //   console.log('user after: ', this.state.user);
-      //   // // setQuery(search);
-      //   // this.setState(search: '');
-      //   // // setSearch('')
-      // }
-
-    // }
