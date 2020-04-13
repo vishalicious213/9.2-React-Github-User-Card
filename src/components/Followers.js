@@ -1,6 +1,6 @@
 import React from 'react';
 import './Followers.css';
-// import GitHubCalendar from "react-github-calendar";
+import GitHubCalendar from "react-github-calendar";
 // import axios from 'axios';
 // import Usercard from './Usercard';
 
@@ -23,7 +23,7 @@ const Followers = (props) => {
                                 <button>Visit GitHub Profile</button>
                             </a>
 
-                            {/* <div className='calendar'>
+                            <div className='calendar'>
                                 <GitHubCalendar
                                     username={follower.login}
                                     fontSize={12}
@@ -31,7 +31,7 @@ const Followers = (props) => {
                                     blockMargin={4}
                                     color="darkslateblue"
                                 />
-                            </div> */}
+                            </div>
                         </div>
                     )
                 })}
