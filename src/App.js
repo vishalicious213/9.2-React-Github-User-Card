@@ -53,10 +53,11 @@ class App extends React.Component {
     }
 
     // submit event handler. attach to <form>
-    stopAxios = event => {
-      // event.preventDefault();
+    handleSubmit = event => {
+      event.preventDefault();
       this.setState({user: this.state.typedString});
       console.log(this.state.user);
+      // alert('handleSubmit: ', this.state.user);
     }
 
     // button's event handler. initiates new axios call. i want it to use call from getUserData.
@@ -70,12 +71,14 @@ class App extends React.Component {
         .catch(error => console.log('Error: ', error));
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //   if (prevState.user |= this.state.user) {
-    //     console.log('User state has changed');
-    //     this.GetUserData();
-    //   }
-    // }
+    componentDidUpdate(prevProps, prevState) {
+      console.log('prevState: ', prevState.user);
+      console.log('thisState: ', this.state.user);
+      if (prevState.user |= this.state.user) {
+        alert('User state has changed');
+        // this.GetUserData();
+      }
+    }
 
     render() {
       // console.log('Userdata: ', this.state.userData)
@@ -85,7 +88,7 @@ class App extends React.Component {
         <div className="App">
           {/* <Search /> */}
 
-      <form className='search-form' onSubmit={this.stopAxios}>
+      <form className='search-form' onSubmit={this.handleSubmit}>
         {/* <input className='search-bar' name='search' type='text' value={this.state.search} onChange={this.getSearchText} placeholder='Enter username'/>
         <button className='search-button' type='submit' onSubmit={() => this.submitSearch}>Search</button> */}
         <input
@@ -97,7 +100,7 @@ class App extends React.Component {
         />
         <button
           type='submit'
-          onClick={this.getNewUser}
+          // onClick={this.getNewUser}
         >Search</button>
       </form>
 
