@@ -1,6 +1,7 @@
 import React from 'react';
 import './Usercard.css';
 import GitHubCalendar from "react-github-calendar";
+import Search from './Search';
 
 const Usercard = (props) => {
         // console.log(props)
@@ -31,6 +32,12 @@ const Usercard = (props) => {
                             blockSize={10}
                             blockMargin={4}
                             color="darkslateblue"
+                        />
+
+                        <Search
+                            handleSubmit={props.handleSubmit}
+                            typedString={props.typedString}
+                            handleSearch={props.handleSearch} 
                         />
                     </div>
                 </div>

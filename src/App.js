@@ -64,17 +64,6 @@ class App extends React.Component {
       console.log('Submit: ', this.state.user);
     }
 
-    // button's event handler. initiates new axios call. i want it to use call from getUserData.
-    getNewUser = event => {
-      axios
-        .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.typedString}`)
-        .then(results => {
-          console.log(results);
-          this.setState({userData: results.data});
-        })
-        .catch(error => console.log('Error: ', error));
-    }
-
     componentDidUpdate(prevProps, prevState) {
       // alert();
       console.log('prevState: ', prevState.user);
@@ -94,9 +83,7 @@ class App extends React.Component {
         <div className="App">
           {/* <Search /> */}
 
-      <form className='search-form' onSubmit={this.handleSubmit}>
-        {/* <input className='search-bar' name='search' type='text' value={this.state.search} onChange={this.getSearchText} placeholder='Enter username'/>
-        <button className='search-button' type='submit' onSubmit={() => this.submitSearch}>Search</button> */}
+      {/* <form className='search-form' onSubmit={this.handleSubmit}>
         <input
           type='text'
           value={this.state.typedString}
@@ -104,17 +91,19 @@ class App extends React.Component {
           name='search'
           placeholder='Enter username'
         />
-        <button
-          type='submit'
-          // onClick={this.getNewUser}
-        >Search</button>
-      </form>
+        <button type='submit'>Search</button>
+      </form> */}
 
           <header className="App-header">
             React GitHub User Card
           </header>
-          <Usercard userData={this.state.userData} />
-          <Followers followersData={this.state.followersData} getUserData={this.getUserData} />
+          <Usercard 
+            userData={this.state.userData} 
+            handleSubmit={this.handleSubmit}
+            typedString={this.typedString}
+            handleSearch={this.handleSearch} 
+          />
+          {/* <Followers followersData={this.state.followersData} getUserData={this.getUserData} /> */}
         </div>
       )
     }
