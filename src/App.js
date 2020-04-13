@@ -17,35 +17,30 @@ class App extends React.Component {
         }
     }
 
+    getUserData = () => {
+      axios
+        .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.user}`)
+        .then(results => {
+          // console.log(results);
+          this.setState({userData: results.data});
+        })
+        .catch(error => console.log('Error: ', error));
+    }
+
+    getFollowersData = () => {
+      axios
+        .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.user}/followers`)
+        .then(results => {
+          // console.log(results);
+          console.log('Getting followers again')
+          this.setState({followersData: results.data});
+        })
+        .catch(error => console.log('Error: ', error));
+    }
+
     componentDidMount() {
-      const GetUserData = () => {
-        axios
-          .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.user}`)
-          .then(results => {
-            // console.log(results);
-            this.setState({userData: results.data});
-          })
-          .catch(error => console.log('Error: ', error));
-      }
-
-      // const UpdateUser = (props) => {
-      //   this.setState({user: props})
-      // }
-
-      const GetFollowersData = () => {
-        axios
-          .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.user}/followers`)
-          .then(results => {
-            // console.log(results);
-            console.log('Getting followers again')
-            this.setState({followersData: results.data});
-          })
-          .catch(error => console.log('Error: ', error));
-      }
-
-
-      GetUserData();
-      GetFollowersData();
+      this.getUserData();
+      this.getFollowersData();
     }
 
     // componentDidUpdate(prevProps, prevState) {
@@ -89,15 +84,11 @@ class App extends React.Component {
       console.log(this.state.user);
     }
 
-    // getNewUser = event => {
-    //   this.getUserData();
-    // }
-
     getNewUser = event => {
       axios
         .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.typedString}`)
         .then(results => {
-          // console.log(results);
+          console.log(results);
           this.setState({userData: results.data});
         })
         .catch(error => console.log('Error: ', error));
@@ -111,13 +102,27 @@ class App extends React.Component {
         <div className="App">
           {/* <Search /> */}
 
-
+      <form className='search-form' onSubmit={this.stopAxios}>
+        {/* <input className='search-bar' name='search' type='text' value={this.state.search} onChange={this.getSearchText} placeholder='Enter username'/>
+        <button className='search-button' type='submit' onSubmit={() => this.submitSearch}>Search</button> */}
+        <input
+          type='text'
+          value={this.state.typedString}
+          onChange={this.handleSearch}
+          name='search'
+          placeholder='Enter username'
+        />
+        <button
+          type='submit'
+          onClick={this.getNewUser}
+        >Search</button>
+      </form>
 
           <header className="App-header">
             React GitHub User Card
           </header>
           <Usercard userData={this.state.userData} />
-          <Followers followersData={this.state.followersData} getUserData={this.GetUserData} updateUser={this.UpdateUser} />
+          {/* <Followers followersData={this.state.followersData} getUserData={this.getUserData} updateUser={this.UpdateUser} /> */}
         </div>
       )
     }
