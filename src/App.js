@@ -19,7 +19,8 @@ class App extends React.Component {
     // axios call to GitHub API to get main user's data for top of screen
     getUserData = () => {
       axios
-        .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.user}`)
+        // .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.user}`)
+        .get(`https://api.github.com/users/${this.state.user}`)
         .then(results => {
           // console.log(results);
           this.setState({userData: results.data});
@@ -30,7 +31,8 @@ class App extends React.Component {
     // axios call with main user's login name to get followers list data
     getFollowersData = () => {
       axios
-        .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.user}/followers`)
+        // .get(`https://non-cors.herokuapp.com/https://api.github.com/users/${this.state.user}/followers`)
+        .get(`https://api.github.com/users/${this.state.user}/followers`)
         .then(results => {
           // console.log(results);
           console.log('Getting followers again')
